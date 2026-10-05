@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="An independent local guide to Salem, Massachusetts. Plan your trip, explore local picks, survive October and see Salem like you live here.">
+  <title>Salem Local | See Salem Like You Live Here</title>
+
+  <style>
+    :root{
+      --ink:#171814;
+      --paper:#f4efe4;
+      --cream:#e8dfce;
+      --copper:#a85f38;
+      --moss:#485443;
+      --fog:#d5d4cd;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--paper);
+      color:var(--ink);
+      font-family:Arial,Helvetica,sans-serif;
+      line-height:1.6;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 6%;
+      background:rgba(244,239,228,.96);
+      border-bottom:1px solid #cfc7b7;
+    }
+
+    .brand{
+      font-family:Georgia,serif;
+      font-size:22px;
+      font-weight:bold;
+      letter-spacing:2px;
+    }
+
+    .brand span{color:var(--copper)}
+
+    nav{display:flex;gap:20px;flex-wrap:wrap}
+    nav a{
+      color:var(--ink);
+      text-decoration:none;
+      font-size:13px;
+      font-weight:bold;
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+
+    .hero{
+      min-height:78vh;
+      padding:100px 8% 80px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      background:
+        radial-gradient(circle at 85% 25%,rgba(168,95,56,.18),transparent 30%),
+        linear-gradient(135deg,#f4efe4,#e3dac8);
+    }
+
+    .kicker{
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-size:12px;
+      font-weight:bold;
+      color:var(--copper);
+    }
+
+    h1,h2,h3{
+      font-family:Georgia,"Times New Roman",serif;
+      line-height:1.05;
+    }
+
+    h1{
+      font-size:clamp(52px,9vw,105px);
+      max-width:1000px;
+      margin:15px 0 25px;
+      font-weight:normal;
+    }
+
+    h1 em{color:var(--copper)}
+
+    h2{
+      font-size:clamp(36px,5vw,62px);
+      margin:10px 0 25px;
+      font-weight:normal;
+    }
+
+    h3{font-size:25px;margin:10px 0}
+
+    .lead{
+      max-width:720px;
+      font-size:20px;
+    }
+
+    .buttons{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:28px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 20px;
+      background:var(--copper);
+      color:white;
+      text-decoration:none;
+      font-weight:bold;
+      border:1px solid var(--copper);
+    }
+
+    .btn.alt{
+      background:transparent;
+      color:var(--ink);
+    }
+
+    .section{padding:80px 8%}
+    .muted{background:var(--cream)}
+    .dark{background:var(--ink);color:var(--paper)}
+    .dark .kicker{color:#d78b60}
+
+    .quick{padding:40px 8%;background:var(--moss);color:white}
+    .quick h2{font-size:32px}
+
+    .grid{
+      display:grid;
+      gap:20px;
+      margin-top:35px;
+    }
+
+    .three{grid-template-columns:repeat(3,1fr)}
+    .four{grid-template-columns:repeat(4,1fr)}
+
+    article,.quick a{
+      padding:25px;
+      border:1px solid rgba(100,90,70,.28);
+    }
+
+    .quick a{
+      color:white;
+      text-decoration:none;
+      font-family:Georgia,serif;
+      font-size:20px;
+    }
+
+    .quick small{display:block;font-family:Arial,sans-serif;margin-top:8px}
+
+    .cards article{background:rgba(255,255,255,.25)}
+
+    .timeline{
+      max-width:850px;
+      margin-top:40px;
+      border-left:2px solid var(--copper);
+    }
+
+    .timeline article{
+      border:0;
+      padding:5px 0 30px 30px;
+    }
+
+    .timeline span{
+      color:#d78b60;
+      font-size:12px;
+      font-weight:bold;
+      letter-spacing:2px;
+    }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:30px;
+    }
+
+    .chips span{
+      padding:10px 14px;
+      border:1px solid currentColor;
+    }
+
+    .merch{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      margin-top:35px;
+    }
+
+    .merch div{
+      border:1px solid #555;
+      padding:25px;
+      min-height:120px;
+      display:flex;
+      align-items:center;
+      font-family:Georgia,serif;
+      font-size:20px;
+    }
+
+    .note{opacity:.75;margin-top:30px}
+
+    footer{
+      background:#0e0f0d;
+      color:#ccc;
+      padding:45px 8%;
+    }
+
+    footer p{font-size:13px;max-width:750px}
+
+    @media(max-width:800px){
+      header{align-items:flex-start}
+      nav{display:none}
+      .hero{min-height:70vh;padding-top:80px}
+      .three,.four,.merch{grid-template-columns:1fr}
+      .section{padding:60px 7%}
+      h1{font-size:54px}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">SALEM <span>LOCAL</span></div>
+  <nav>
+    <a href="#plan">Plan</a>
+    <a href="#things">Things to Do</a>
+    <a href="#eat">Eat & Drink</a>
+    <a href="#october">October</a>
+    <a href="#picks">Local Picks</a>
+    <a href="#guides">Itineraries</a>
+    <a href="#shop">Shop</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+  <p class="kicker">Salem, Massachusetts · Independent Local Guide</p>
+
+  <h1>See Salem Like<br><em>You Live Here.</em></h1>
+
+  <p class="lead">
+    Salem, without the guesswork. Practical plans, local perspective,
+    October survival advice and a better way to explore the city.
+  </p>
+
+  <div class="buttons">
+    <a class="btn" href="#oneday">Plan My Salem Day</a>
+    <a class="btn alt" href="#picks">Explore Local Picks</a>
+  </div>
+</section>
+
+<section class="quick">
+  <h2>In Salem right now?</h2>
+
+  <div class="grid four">
+    <a href="#plan">Parking & Getting Here<small>Skip the circling.</small></a>
+    <a href="#eat">Food & Drink<small>Find your next stop.</small></a>
+    <a href="#things">Things to Do<small>Pick your Salem.</small></a>
+    <a href="#october">October & Crowds<small>Have a plan.</small></a>
+  </div>
+</section>
+
+<section id="plan" class="section">
+  <p class="kicker">First time in Salem?</p>
+  <h2>The city rewards a good plan — and a willingness to wander.</h2>
+
+  <div class="grid three">
+    <article>
+      <b>01</b>
+      <h3>Get here smart</h3>
+      <p>Salem is compact once you're downtown. Build your arrival strategy before your attraction list.</p>
+    </article>
+
+    <article>
+      <b>02</b>
+      <h3>Choose your priorities</h3>
+      <p>History, maritime Salem, modern witch culture, architecture and food — you don't need to do everything.</p>
+    </article>
+
+    <article>
+      <b>03</b>
+      <h3>Leave room to wander</h3>
+      <p>The best version of Salem includes side streets, the waterfront and time that isn't booked.</p>
+    </article>
+  </div>
+</section>
+
+<section id="oneday" class="section dark">
+  <p class="kicker">Free starter itinerary</p>
+  <h2>Salem in One Day</h2>
+
+  <p class="lead">
+    A useful framework that keeps you moving without turning your day
+    into a checklist.
+  </p>
+
+  <div class="timeline">
+    <article>
+      <span>MORNING</span>
+      <h3>Start with historic Salem</h3>
+      <p>Arrive early, orient yourself downtown and choose one major historic experience before the busiest part of the day.</p>
+    </article>
+
+    <article>
+      <span>MIDDAY</span>
+      <h3>Lunch + a change of pace</h3>
+      <p>Eat, walk toward the waterfront and reset before the afternoon.</p>
+    </article>
+
+    <article>
+      <span>AFTERNOON</span>
+      <h3>Pick your Salem</h3>
+      <p>Choose maritime history, museums, architecture, shopping or modern witch culture based on what interests you.</p>
+    </article>
+
+    <article>
+      <span>EVENING</span>
+      <h3>Stay after the day-trippers</h3>
+      <p>Dinner, drinks and an evening walk can feel like a different city once the daytime rush fades.</p>
+    </article>
+  </div>
+</section>
+
+<section id="october" class="section">
+  <p class="kicker">October Survival Guide</p>
+  <h2>Come for the magic.<br>Plan for the crowds.</h2>
+
+  <p class="lead">
+    October is Salem at full volume. Arrive earlier than you think,
+    expect to walk and reserve your must-do experiences ahead of time.
+  </p>
+
+  <div class="chips">
+    <span>Arrive early</span>
+    <span>Consider transit</span>
+    <span>Wear walking shoes</span>
+    <span>Reserve priorities</span>
+    <span>Bring layers</span>
+    <span>Keep plans flexible</span>
+  </div>
+</section>
+
+<section id="things" class="section muted">
+  <p class="kicker">Find your Salem</p>
+  <h2>There isn't just one Salem.</h2>
+
+  <div class="grid four cards">
+    <article>
+      <h3>Maritime Salem</h3>
+      <p>Harbor, waterfront and the trading history that made Salem internationally important.</p>
+    </article>
+
+    <article>
+      <h3>Historic Salem</h3>
+      <p>Architecture, early American history and the stories behind the city's oldest streets.</p>
+    </article>
+
+    <article>
+      <h3>Modern Magic</h3>
+      <p>The contemporary witch community and culture that makes today's Salem distinct.</p>
+    </article>
+
+    <article>
+      <h3>Slow Salem</h3>
+      <p>Walk, browse, drink coffee and give yourself permission not to optimize every minute.</p>
+    </article>
+  </div>
+</section>
+
+<section id="eat" class="section dark">
+  <p class="kicker">Eat & Drink</p>
+  <h2>Pick by mood, not by algorithm.</h2>
+
+  <div class="chips">
+    <span>Coffee & Breakfast</span>
+    <span>Lunch</span>
+    <span>Dinner</span>
+    <span>Drinks</span>
+    <span>Vegan / Vegetarian</span>
+    <span>Sweet Treats</span>
+  </div>
+
+  <p class="note">
+    Specific editorial picks are being verified before publication so
+    we don't send you somewhere based on stale information.
+  </p>
+</section>
+
+<section id="picks" class="section">
+  <p class="kicker">Local Picks</p>
+  <h2>The short list we're willing to stand behind.</h2>
+
+  <div class="grid four cards">
+    <article>
+      <h3>Made in Salem</h3>
+      <p>Local makers, shops and things that actually feel connected to the city.</p>
+    </article>
+
+    <article>
+      <h3>Worth the Walk</h3>
+      <p>Places outside the obvious tourist path that reward a few extra blocks.</p>
+    </article>
+
+    <article>
+      <h3>Rainy Day</h3>
+      <p>A Salem day still worth having when New England weather doesn't cooperate.</p>
+    </article>
+
+    <article>
+      <h3>With Kids</h3>
+      <p>A practical family framework without pretending every attraction fits every age.</p>
+    </article>
+  </div>
+</section>
+
+<section id="guides" class="section muted">
+  <p class="kicker">Itineraries</p>
+  <h2>Plans when you want one. Freedom when you don't.</h2>
+
+  <div class="grid three cards">
+    <article>
+      <small>COMING SOON</small>
+      <h3>Perfect Salem Weekend</h3>
+      <p>A two-day plan balancing essentials with breathing room.</p>
+    </article>
+
+    <article>
+      <small>COMING SOON</small>
+      <h3>Witchy Weekend</h3>
+      <p>A focused guide for travelers coming for Salem's magical side.</p>
+    </article>
+
+    <article>
+      <small>COMING SOON</small>
+      <h3>Salem With Kids</h3>
+      <p>A family-minded plan with realistic pacing.</p>
+    </article>
+  </div>
+</section>
+
+<section id="shop" class="section dark">
+  <p class="kicker">Salem Local Shop</p>
+  <h2>Wear the inside joke.</h2>
+
+  <p class="lead">Salem-inspired shirts, totes and stickers. Store launch coming soon.</p>
+
+  <div class="merch">
+    <div>SALEM LOCAL — ASK ME WHERE TO PARK</div>
+    <div>I SURVIVED OCTOBER IN SALEM</div>
+    <div>SALEM — WICKED SINCE 1626</div>
+    <div>MY FAVORITE SEASON IS OCTOBER</div>
+    <div>MEET ME IN SALEM</div>
+    <div>I CAME TO SALEM AND ALL I GOT WAS TRAFFIC</div>
+    <div>COME FOR THE WITCHES, STAY BECAUSE YOU CAN'T FIND YOUR CAR</div>
+    <div>NOT ALL WITCHES LIVE IN SALEM</div>
+    <div>WITCHY WEEKEND IN SALEM</div>
+    <div>SALEM MASSACHUSETTS 400 YEARS 1626–2026</div>
+  </div>
+</section>
+
+<section class="section">
+  <p class="kicker">The Local Note</p>
+  <h2>Get Salem in your inbox,<br>not your algorithm.</h2>
+  <p>Email signup and Salem Local guides are coming soon.</p>
+</section>
+
+</main>
+
+<footer>
+  <div class="brand">SALEM <span>LOCAL</span></div>
+
+  <p>
+    Independent/unofficial guide. Not affiliated with the City of Salem
+    or Destination Salem.
+  </p>
+
+  <p>© 2026 SALEM LOCAL.</p>
+</footer>
+
+</body>
+</html>
